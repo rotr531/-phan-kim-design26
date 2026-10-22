@@ -5,7 +5,12 @@ Website portfolio của **Phan Kim Design**, studio kiến trúc & nội thất.
 
 ## Cấu trúc
 
-Site tĩnh gồm một file `index.html` duy nhất — toàn bộ hình ảnh và tài nguyên đã được nhúng sẵn trong file, không cần build, không phụ thuộc file ngoài. Mở `index.html` là chạy, hoặc xem trực tiếp qua GitHub Pages.
+Site tĩnh, không cần build:
+
+- `index.html` — toàn bộ nội dung, bố cục và mã nguồn của site.
+- `assets/` — hình ảnh của 5 dự án và logo, tách file riêng để trình duyệt tải song song và cache tốt hơn.
+
+Mở `index.html` là chạy, hoặc xem trực tiếp qua GitHub Pages.
 
 ## Dự án tuyển chọn
 
