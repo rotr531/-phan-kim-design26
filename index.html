@@ -341,22 +341,6 @@
       .next-proj:hover h2{text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1px}
 
 
-      function setModalBackground(dialog, active) {
-        [document.querySelector(".site-header"),app,document.querySelector(".back-top"),document.getElementById("mobileMenu"),document.getElementById("lightbox")].forEach(function(el){
-          if(el && el!==dialog) el.inert=active;
-        });
-      }
-      document.addEventListener("keydown",function(e){
-        if(e.key!=="Tab")return;
-        var dialog=document.querySelector(".lightbox.open,.mobile-menu.open");
-        if(!dialog)return;
-        var items=Array.from(dialog.querySelectorAll('a[href],button:not([disabled]),[tabindex="0"]')).filter(function(el){return el.getClientRects().length;});
-        if(!items.length)return;
-        var first=items[0],last=items[items.length-1];
-        if(e.shiftKey && (document.activeElement===first || !dialog.contains(document.activeElement))){e.preventDefault();last.focus();}
-        else if(!e.shiftKey && (document.activeElement===last || !dialog.contains(document.activeElement))){e.preventDefault();first.focus();}
-      });
-
       /* ---------- Lightbox ---------- */
       .lightbox{position:fixed;inset:0;z-index:90;background:rgba(13,11,9,.985);display:none;flex-direction:column}
       .lightbox.open{display:flex}
@@ -1077,6 +1061,23 @@ html{scroll-behavior:auto!important}
       }
 
       /* ---------- Lightbox ---------- */
+      function setModalBackground(dialog, active) {
+        [document.querySelector(".site-header"),app,document.querySelector(".back-top"),document.getElementById("mobileMenu"),document.getElementById("lightbox")].forEach(function(el){
+          if(el && el!==dialog) el.inert=active;
+        });
+      }
+      document.addEventListener("keydown",function(e){
+        if(e.key!=="Tab")return;
+        var dialog=document.querySelector(".lightbox.open,.mobile-menu.open");
+        if(!dialog)return;
+        var items=Array.from(dialog.querySelectorAll('a[href],button:not([disabled]),[tabindex="0"]')).filter(function(el){return el.getClientRects().length;});
+        if(!items.length)return;
+        var first=items[0],last=items[items.length-1];
+        if(e.shiftKey && (document.activeElement===first || !dialog.contains(document.activeElement))){e.preventDefault();last.focus();}
+        else if(!e.shiftKey && (document.activeElement===last || !dialog.contains(document.activeElement))){e.preventDefault();first.focus();}
+      });
+
+
       var lb = document.getElementById("lightbox");
       var lbImg = document.getElementById("lbImg");
       var lbCap = document.getElementById("lbCap");
